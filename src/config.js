@@ -1,8 +1,8 @@
+require("dotenv").config();
 const config = {
   production: {
-    SECRET: "NextJs",
-    DATABASE:
-      "mongodb+srv://sahilkhadtare:sahil@cluster0.dijdfcd.mongodb.net/?retryWrites=true&w=majority",
+    SECRET: process.env.SECRET,
+    DATABASE: process.env.MONGODB_URI,
   },
   default: {
     SECRET: "mysecretkey",
@@ -11,5 +11,5 @@ const config = {
 };
 
 exports.get = function (env) {
-  return config.production;
+  return config[env] || config.default;
 };

@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyparser = require("body-parser");
@@ -24,7 +25,6 @@ app.post("/api/register", async function (req, res) {
   // taking a user
   try {
     const newuser = new User(req.body);
-    console.log(newuser);
 
     if (newuser.password != newuser.password2)
       return res.status(400).json({ message: "password not match" });
@@ -111,10 +111,6 @@ app.get("/api/logout", auth, function (req, res) {
     if (err) return res.status(400).send(err);
     res.sendStatus(200);
   });
-});
-
-app.get("/", function (req, res) {
-  res.status(200).send(`Welcome to login , sign-up api`);
 });
 
 // listening port

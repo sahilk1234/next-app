@@ -1,3 +1,4 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
@@ -57,8 +58,6 @@ userSchema.pre("save", function (next) {
 
 //to login
 userSchema.methods.comparePassword = async function (password) {
-  console.log(password, "*", this.password);
-
   const validPassword = await bcrypt.compare(password, this.password);
   return validPassword;
 };
