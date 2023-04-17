@@ -117,8 +117,4 @@ app.get("/api/hi", auth, function (req, res) {
   res.status(200).send("HI");
 });
 
-// listening port
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`app is live at ${PORT}`);
-});
+module.exports = app
