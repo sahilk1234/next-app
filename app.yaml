@@ -1,3 +1,6 @@
 runtime: nodejs16
 env: standard
 instance_class: F1
+MONGODB_URI : "mongodb+srv://sahilkhadtare:sahil@cluster0.dijdfcd.mongodb.net/?retryWrites=true&w=majority"
+NODE_ENV : production
+SECRET : "NextJs"
