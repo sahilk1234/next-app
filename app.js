@@ -6,6 +6,8 @@ const cookieParser = require("cookie-parser");
 const User = require("./src/schema/user");
 const { auth } = require("./src/middlewares/auth");
 const db = require("./src/config").get(process.env.NODE_ENV);
+console.log("ENV", process.env.NODE_ENV);
+console.log("MA", process.env.MONGODB_URI);
 
 const app = express();
 // app use
@@ -97,6 +99,7 @@ app.get("/api/getUser", async function (req, res) {
   if (userFromToken) {
     return res.status(200).send({
       _id: userFromToken._id,
+      isAuth: true,
       firstname: userFromToken.firstname,
       lastname: userFromToken.lastname,
       email: userFromToken.email,
@@ -117,4 +120,4 @@ app.get("/api/hi", auth, function (req, res) {
   res.status(200).send("HI");
 });
 
-module.exports = app
+module.exports = app;

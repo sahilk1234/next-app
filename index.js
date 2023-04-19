@@ -8,7 +8,7 @@ const app = require("./app");
  * --------------- */
 
 // listening port
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3080;
 app.set(PORT);
 
 // Create Web server
