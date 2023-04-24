@@ -1,17 +1,5 @@
-"use strict";
-
-// Load deps
-const http = require("http");
 const app = require("./app");
-
-/* Server creation
- * --------------- */
-
-// listening port
 const PORT = process.env.PORT || 3080;
-app.set(PORT);
-
-// Create Web server
-http
-  .createServer(app)
-  .listen(PORT, () => console.log(`Node app running at localhost:${PORT}`));
+app.listen(PORT, () => {
+  console.log(`app is live at ${PORT}`);
+});
