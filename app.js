@@ -120,4 +120,8 @@ app.get("/api/hi", auth, function (req, res) {
   res.status(200).send("HI");
 });
 
+app.get("/", auth, function (req, res) {
+  res.status(200).send("Welcome to next APIs");
+});
+
 module.exports = app;
